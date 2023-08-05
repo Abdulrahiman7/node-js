@@ -1,4 +1,6 @@
-const a=2;
-const b=3;
-const c=(x,y)=> x*y;
-console.log(c(a,b));
+const http=require('http');
+const server=http.createServer((req,res)=>{
+    console.log('Abdul Rahiman');
+})
+server.listen(4000);
+  
