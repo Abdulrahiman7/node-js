@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/general.css">
+    <style>
+        .product{
+            background-color: aquamarine;
+            display: flex;
+            
+        }
+        .form-a{
+            width: 30%;
+            margin: auto;
+            color: inherit;
+        }
+        .form-a input{
+            width: 100%;
+        }
+        .form-a input:focus{
+            border: 2px;
+            
+            outline-color: rgb(184, 25, 25);
+        }
+        .form-a button{
+            margin-top: 10px;
+            outline-color: rgb(224, 232, 234);
+            background-color: rgb(56, 100, 115);
+            color: white;
+        }
+        .form-a button:hover{
+            outline-color: rgb(184, 25, 25);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <nav>
+            <ul>
+                <a href="/"><li>Shop</li></a>
+                <a href="/admin/add-product"><li>Add Product</li></a>
+                <a href="/contactus"><li>Contact Us</li></a>
+            </ul>
+        </nav>
+    </div>
+    <div class="product">
+        <form class="form-a" action="/success" method="post">
+        <h4>Name</h4>
+        <input type="text" name="name"><br>
+        <h4>Email</h4>
+        <input type="email" name="email"><br>
+        <button type="submit">contact</button>
+    </form>
+    </div>
+</body>
+</html>
