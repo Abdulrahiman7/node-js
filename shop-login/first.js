@@ -1,5 +1,4 @@
 const path=require('path');
-const rootName=require('./util/path');
 const express=require('express');
 const app=express();
 const bodyParser=require('body-parser');
@@ -15,8 +14,6 @@ app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 app.use(contactRoutes);
 
-
-app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(rootName,'views','error.html'));
-})
+const errorControl=require('./controller/control');
+app.use(errorControl.geterror)
 app.listen(4000);
