@@ -16,6 +16,11 @@
             </ul>
         </nav>
     </div>
-    <h1>welcome to Node.js</h1>
+    <h1>welcome to Shop</h1>
+    <ul>
+        <% products.forEach(product => { %>
+            <li><%= product.title %></li>
+        <% }); %>
+    </ul>
 </body>
 </html>
