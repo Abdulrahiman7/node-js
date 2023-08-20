@@ -13,6 +13,7 @@
             <p><%= product.description %></p>
             <form action="/cart" method="post">
                 <button class="btn">Add to cart</button>
+                <input type="hidden" name="cartProductId" value="<%= product.id %>">
             </form>
         </main>
         <%- include('../includes/end.ejs') %>
