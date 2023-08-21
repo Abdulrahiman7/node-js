@@ -1,15 +1,14 @@
 const fs=require('fs');
 const path=require('path');
-module.exports= class Cart{
-    static addProduct(id, price){
 const p=path.join(__dirname,'../','data','cart.json');
-console.log(p);
+module.exports= class Cart{
+    static addProduct(id, title, imageUrl, description, price){
+
       fs.readFile(p, (err, filecontent)=>{
         let cart={product:[],totalPrice:0};
         if(!err){
             cart=JSON.parse(filecontent);
         }
-        console.log(err);
         const existingProductIndex= cart.product.findIndex(prod => prod.id === id);
         const existingProduct= cart.product.find(prod => prod.id === id);
         let updatedProduct;
@@ -18,7 +17,7 @@ console.log(p);
             updatedProduct.qty= updatedProduct.qty + 1;
             cart.product[existingProductIndex] = updatedProduct;
         }else{
-            updatedProduct= { id: id, qty:1};
+            updatedProduct= { id: id,title: title, imageUrl: imageUrl, description: description, price:price, qty:1};
             cart.product = [...cart.product, updatedProduct];
         }
         cart.totalPrice=cart.totalPrice + +price;
@@ -29,4 +28,18 @@ console.log(p);
         })
       })  
     }
+
+    static async fetchAll(cb)
+    {
+        
+        fs.readFile(p, (err,data)=>{
+            if(err){
+                console.log('file is empty')
+            }else{
+                cb(JSON.parse(data))
+            }
+        })
+    }
+
+    
 }

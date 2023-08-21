@@ -22,7 +22,14 @@
                             <p class="product__description"><%= product.description %></p>
                         </div>
                         <div class="card__actions">
-                            <button class="btn">Add to Cart</button>
+                            <form action="/cart" method="post">
+                                <button class="btn">Add to cart</button>
+                                <input type="hidden" name="cartProductId" value="<%= product.id %>">
+                            </form>
+                            <form action="/admin/edit-product/<%= product.id %>" >
+                                <button class="btn" type="submit" >Edit</button>
+                                <input type="hidden" name="edit" value="true">
+                            </form>
                         </div>
                     </article>
                 <% } %>
