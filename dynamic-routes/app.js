@@ -23,4 +23,13 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(4000);
+const sequelize=require('./util/database');
+
+sequelize.sync()
+.then((result)=>{
+    console.log(result);
+    app.listen(4000);
+}).catch(err => console.log(err));
+
+
+
